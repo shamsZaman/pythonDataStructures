@@ -30,12 +30,25 @@ class linked_list:
         if index >= self.length():
             print("Error")
             return None
-        cur_ind=0
+        cur_ind=1
         cur_node=self.head
         while True:
             cur_node = cur_node.next
-            if (cur_ind -1) == index: return cur_node.data
+            if (cur_ind ) == index: return cur_node.data
             cur_ind +=1
+    def erase(self, index):
+        if index >= self.length():
+            print ("Error: Index")
+        cur_ind = 1
+        cur_node = self.head
+        while True:
+            last_node = cur_node
+            cur_node = cur_node.next
+            if cur_ind == index:
+                last_node.next = cur_node.next
+                return
+            cur_ind +=1
+
 
 
 my_list = linked_list()
@@ -45,5 +58,7 @@ my_list.append("piyara")
 
 
 my_list.display()
-print("element at 2nd index: %s" % my_list.get(2))
+print("element at 2nd index: %s" % my_list.get(1))
+my_list.erase(2)
+my_list.display()
 
